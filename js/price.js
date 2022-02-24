@@ -43,7 +43,6 @@ let Price = {
         result.text = result.text.replace(/nzd/ig, "$");
         result.text = result.text.replace(/gbp/ig, "\u00A3");
 
-        // Replace yen suffix with yen prefix
         if (result.text.match(/\u5186/ig))
         {
             result.text = "\u00A5" + result.text.replace(/\u5186/ig, "");
@@ -81,7 +80,6 @@ let Price = {
         {
             if ((result.cleanText.length - result.separatorIndices[0] - 1) == 2)
             {
-                // Separator is decimal separator
                 result.decimalSeparator = result.cleanText[result.separatorIndices[0]];
                 result.thousandSeparator = result.decimalSeparator == separatorDot ? separatorComma : separatorDot;
 
@@ -91,7 +89,6 @@ let Price = {
             }
             else if ((result.cleanText.length - result.separatorIndices[0] - 1) == 3)
             {
-                // Separator is thousand separator
                 result.thousandSeparator = result.cleanText[result.separatorIndices[0]];
                 result.decimalSeparator = result.thousandSeparator == separatorDot ? separatorComma : separatorDot;
 
@@ -104,7 +101,6 @@ let Price = {
         {
             if (result.separatorCounts[separatorDot] == result.separatorCounts[separatorComma])
             {
-                // last separatorIndex = decimalSeparator
                 result.decimalSeparator = result.cleanText[result.separatorIndices[result.separatorIndices.length - 1]];
                 result.thousandSeparator = result.decimalSeparator == separatorDot ? separatorComma : separatorDot;
             }
