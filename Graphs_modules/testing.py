@@ -18,7 +18,7 @@ with open("test.txt", "r")as file:
 
 plt.plot(x,y)
 plt.title('Test')
-plt.xlabel('rok')
-plt.ylabel('kwota')
+plt.xlabel('year')
+plt.ylabel('price')
 plt.show()
 plt.autoscale(enable=True, axis = Literal['both','x','y'])
